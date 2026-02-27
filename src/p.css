@@ -1,0 +1,313 @@
+/* import React from 'react'
+
+const App = () => {
+  const submitHandler = (e) => {
+    console.log("Hello", e)
+  }
+  return (
+    <div>
+      <form onSubmit={(e) =>{
+
+        submitHandler(e)
+        e.preventDefault()
+        console.log("submitted");
+      }}>
+        <input className='py-4 px-3 rounded-md text-xl m-5 text-black' type="text" placeholder='enter your name'/>
+        <button className='py-4 px-3 m-5 text-white text-xl font-semibold bg-emerald-600 rounded-md'>submit</button>
+      </form>
+    </div>
+  )
+} form handling
+
+export default App */  
+
+
+
+/* import React, { useState } from 'react'
+two way binding:-
+const App = () => {
+
+const [username, setusername] = useState('')
+
+const submitHandler = (e) => {
+  e.preventDefault()
+
+  console.log(username);
+  setusername('')
+}
+
+  return (
+    <div>
+      <form onSubmit={(e) => {
+        submitHandler(e)
+      }}>
+        <input
+        value={username}
+        onChange={(e) => {
+          setusername(e.target.value)
+        }}
+         className='py-4 px-3 rounded-md text-xl m-5 text-black'
+          type="text" 
+          placeholder='enter your name'
+          />
+        <button className='py-4 px-3 m-5 text-white text-xl font-semibold bg-emerald-600 rounded-md'>submit</button>
+      </form>
+    </div>
+  )
+}
+
+
+export default App */
+
+
+/* import Footer from './components/Footer';
+import Header from './components/Header';
+
+const App = () => {
+  return (
+    <>
+      <Header />
+      <Footer />  this is for component
+    </>
+  );
+};
+
+export default App; */
+
+/* import HeaderPart2 from "./HeaderPart2";
+
+const Header = () => {
+  return (
+    <nav className="bg-emerald-950 flex py-5 px-5 items-center justify-between text-white">
+      <h2 className="text-2xl">shreyansh</h2>
+
+     <HeaderPart2 />
+    </nav>
+  ); this is hunder header part
+};
+
+export default Header; */
+
+/* import HeaderPart2 from "./HeaderPart2";
+
+const Header = () => {
+  return (
+    <nav className="bg-emerald-950 flex py-5 px-5 items-center justify-between text-white">
+      <h2 className="text-2xl">shreyansh</h2>
+
+     <HeaderPart2 />  header part
+    </nav>
+  );
+};
+
+export default Header; */
+
+
+/* components:-
+import Card from './components/Card';
+
+const App = () => {
+  const users = [
+    {
+      id: 1,
+      name: "Amit Sharma",
+      city: "Delhi",
+      age: 25,
+      profession: "Frontend Developer",
+      profilePhoto: "https://randomuser.me/api/portraits/men/32.jpg"
+    },
+    {
+      id: 2,
+      name: "Neha Verma",
+      city: "Mumbai",
+      age: 23,
+      profession: "UI/UX Designer",
+      profilePhoto: "https://randomuser.me/api/portraits/women/44.jpg"
+    },
+    {
+      id: 3,
+      name: "Rahul Singh",
+      city: "Bangalore",
+      age: 28,
+      profession: "Backend Engineer",
+      profilePhoto: "https://randomuser.me/api/portraits/men/65.jpg"
+    },
+    {
+      id: 4,
+      name: "Priya Patel",  
+      city: "Ahmedabad",
+      age: 26,
+      profession: "Data Analyst",
+      profilePhoto: "https://randomuser.me/api/portraits/women/68.jpg"
+    },
+    {
+      id: 5,
+      name: "Arjun Mehta",
+      city: "Pune",
+      age: 24,
+      profession: "Full Stack Developer",
+      profilePhoto: "https://randomuser.me/api/portraits/men/75.jpg"
+    }
+  ];
+
+  return (
+    <div className="p-10 flex">
+      {users.map((elem) => (
+        <Card key={elem.id} user={elem} />
+      ))}
+    </div>
+  );
+};
+
+export default App; */
+
+
+/* style for components
+const Card = ({ user }) => {
+  return (
+    <div className="mr-7 bg-white text-black inline-block p-6 text-center rounded-md">
+      <img
+        className="mx-auto h-32 w-32 rounded-full mb-3"
+        src={user.profilePhoto}
+        alt={user.name}
+      />
+
+      <h1 className="text-2xl font-semibold mb-2">
+        {user.name}
+      </h1>
+
+      <h2 className="text-gray-600">
+        {user.city}, {user.age}
+      </h2>
+
+      <p className="text-sm text-gray-500">
+        {user.profession}
+      </p>
+
+      <button className="mt-5 bg-emerald-700 text-white px-4 py-2 rounded font-medium">
+        Add Friend
+      </button>
+    </div>
+  );
+};
+
+export default Card; */
+
+
+/* API calling with axios
+import axios from "axios";
+import { useEffect, useState } from "react";
+
+const App = () => {
+  const [data, setData] = useState([]);
+
+  const getData = async () => {
+    const response = await axios.get(
+      "https://picsum.photos/v2/list?page=2&limit=100"
+    );
+
+    setData(response.data);
+  };
+
+  useEffect(() => {
+    getData();
+
+  }, [])
+  
+
+  return (
+    <div className="p-10">
+      
+      <div className="p-5 mt-5 bg-gray-950">hello</div>
+
+      {data.map(function (elem, idx) {
+        return (
+          <div
+            key={idx}
+            className="bg-gray-50 text-black flex items-center justify-between w-full px-7 py-6 rounded mb-3"
+          >
+            <img
+              src={elem.download_url}
+              alt=""
+              className="w-40 h-28 object-cover rounded"
+            />
+
+            <h2 className="text-xl font-semibold">
+              {elem.author}
+            </h2>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+export default App; */
+
+/* React Router DOM
+import { Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import About from "./pages/About";
+import Home from "./pages/Home";
+import Contact from "./pages/Contact";
+import Product from "./pages/Product";
+
+const App = () => {
+  return (
+    <div>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/product" element={<Product />} />
+      </Routes>
+    </div>
+  );
+};
+
+
+import { Link } from "react-router-dom";
+
+const Header = () => {
+  return (
+    <div className="py-7 px-10 bg-emerald-600 text-white flex items-center justify-between">
+      <h2 className="text-2xl">sheriyansh <input className="text-black" type="text" /></h2>
+
+      <div className="flex gap-10 text-lg underline">
+        <Link className="text-2xl underline" to="/">Home</Link>
+        <Link className="text-2xl underline" to="/about">About</Link>
+        <Link className="text-2xl underline" to="/contact">Contact</Link>
+        <Link className="text-2xl underline" to="/product">Product</Link>
+      </div>
+    </div>
+  );
+};
+
+export default Header;
+
+
+export default App; */
+/* 
+import React, { useContext } from 'react'
+import Header from './components/Header'
+import Section from './components/Section'
+import Footer from './components/Footer'
+import { DataContext } from './context/UserContext'
+
+const App = () => {
+  
+  const data = useContext(DataContext)
+  console.log(data);
+
+  return (
+    <div>
+      <h1>This is APP.js</h1>
+      <Header />
+      <Section />
+      <Footer />
+    </div>
+  )
+}
+
+export default App */
