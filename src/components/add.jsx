@@ -19,12 +19,12 @@ export default function Add({ items, setItems }) {
         <h2 className="text-xl font-bold mb-4 text-center">Add Item</h2>
 
         <input
-          type="text"
-          placeholder="Enter item"
-          className="w-full mb-4 p-2 border rounded"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-        />
+  type="text"
+  placeholder="Enter item"
+  className="w-full mb-4 p-2 border rounded bg-white text-black placeholder-gray-500"
+  value={value}
+  onChange={(e) => setValue(e.target.value)}
+/>
 
         <button className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700">
           Save
