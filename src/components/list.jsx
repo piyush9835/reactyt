@@ -9,32 +9,37 @@ export default function List({ items, setItems }) {
   };
 
   return (
-    <div className="p-6">
-      <div className="flex justify-between items-center mb-4">
-        <h1 className="text-2xl font-bold">List Page</h1>
+    <div className="p-6 min-h-screen bg-[#111] text-white">
+      
+      {/* Header */}
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-3xl font-bold underline">
+          List Page
+        </h1>
 
         <button
           onClick={() => navigate("/add")}
-          className="bg-green-600 text-white px-4 py-2 rounded"
+          className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded transition"
         >
           Add Item
         </button>
       </div>
 
+      {/* Empty State */}
       {items.length === 0 ? (
-        <p>No items added yet.</p>
+        <p className="text-gray-400">No items added yet.</p>
       ) : (
-        <ul className="space-y-2">
+        <ul className="space-y-3">
           {items.map((item, index) => (
             <li
               key={index}
-              className="flex justify-between bg-gray-100 p-3 rounded"
+              className="flex justify-between items-center bg-gray-800 p-3 rounded"
             >
-              <span>{item}</span>
+              <span className="text-white">{item}</span>
 
               <button
                 onClick={() => deleteItem(index)}
-                className="text-red-600 font-semibold"
+                className="text-red-500 hover:text-red-400 font-semibold"
               >
                 Delete
               </button>
